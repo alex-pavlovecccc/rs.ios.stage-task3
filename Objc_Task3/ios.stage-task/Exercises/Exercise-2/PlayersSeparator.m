@@ -2,17 +2,17 @@
 
 @implementation PlayersSeparator
 - (NSInteger)dividePlayersIntoTeams:(NSArray<NSNumber *>*)ratingArray {
-    
+
     
     NSInteger count = 0;
     
     for (int i = 0 ; i < ratingArray.count; i ++) {
-        for( int j = i; j< ratingArray.count; j ++) {
-            for( int k = j; ratingArray.count; k++){
+        for( int j = i + 1; j< ratingArray.count; j ++) {
+            for( int k = j + 1; ratingArray.count; k++){
                 
-                if((ratingArray[i].intValue < ratingArray[j].intValue &&
-                    ratingArray[j].intValue < ratingArray[k].intValue) ||
-                   (ratingArray[i].intValue > ratingArray[j].intValue &&
+                if((ratingArray[i].intValue < ratingArray[j].intValue ||
+                    ratingArray[j].intValue < ratingArray[k].intValue) &&
+                   (ratingArray[i].intValue > ratingArray[j].intValue ||
                     ratingArray[j].intValue > ratingArray[k].intValue)) {
                     
                     count ++;
